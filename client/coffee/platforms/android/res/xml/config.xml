@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="ch.atmoslab.coffee" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <preference name="loglevel" value="DEBUG" />
+    <icon density="ldpi" src="platforms/android/res/drawable/ldpi.png" />
+    <icon density="hdpi" src="platforms/android/res/drawable/hdpi.png" />
+    <icon density="mdpi" src="platforms/android/res/drawable/mdpi.png" />
+    <icon density="xhdpi" src="platforms/android/res/drawable/xhdpi.png" />
+    <preference name="loglevel" value="ERROR" />
+    <name>Coffee</name>
+    <description>
+        The app of the project Home smart home. Control the prototype with it!
+    </description>
+    <author email="jannis.portmann@atmoslab.ch" href="http://atmoslab.ch">
+        Jannis Portmann
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+</widget>

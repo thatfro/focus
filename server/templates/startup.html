@@ -1,0 +1,176 @@
+$def with (form)
+
+<!--
+Info:
+ Project Home Smart Home
+ Server startup.html
+
+Description:
+ Template for the startup state
+
+Edit: 
+ Aug 2014
+ Version 1.0
+
+(c) Jannis Portmann
+-->
+
+<html>
+	<head>
+		<style>
+			button {
+				outline: 0;
+			}
+
+			form, table, tbody, tr, td, body, html  {
+				width: 100%;
+				padding: 0;
+				margin: 0;
+				font-family: 'Roboto', Helvetica, Arial, sans-serif;
+			}
+
+			#coffee, #espresso {
+				display: none;
+			}
+
+			#state {
+				width: 60px;
+				height: 60px;
+				border-radius: 50%;
+				background-color: #fff;
+				position: absolute;
+				bottom: 20px;
+				padding: 7px;
+				margin-left: auto;
+				margin-right: auto;
+			}
+
+			#indicator{
+				width: 56px;
+				height: 56px;
+				border-radius: 50%;
+				position: relative;
+				background-color: #33ad95;
+				border: solid #338b8a 2px;
+			}
+
+			#container {
+				width: 74px;
+				height: 74px;
+				margin: 0;
+				padding: 0;
+				margin-right: auto;
+				margin-left: auto;
+			}
+
+			#e_side {
+				width: 50%;
+				position: absolute;
+				height: 100%;
+				left: 0;
+				background: #453025;
+			}
+
+			#c_side {
+				width: 50%;
+				position: absolute;
+				height: 100%;
+				left: 50%;
+				background: #6d4e3d;
+			}
+
+			#e_bar {
+				width: 100%;
+				height: 80px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: #453025;
+				background: #fff;
+				font-size: 40px;
+				text-align: center;
+				line-height: 100%;
+			}
+
+			#c_bar {
+				width: 100%;
+				height: 80px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				color: #6d4e3d;
+				background: #e7e7e7;
+				font-size: 40px;
+				text-align: center;
+			}
+
+			.contain {
+				position: absolute;
+				top: -20px;
+				width: 100%;
+			}
+
+			p {
+				text-align: center;
+				width: 100%;
+				position: relative;
+			}
+
+			#e_mug {
+				background: url(http://192.168.2.2/espresso.png) -5% center no-repeat; /* IP of Raspberry Pi, serving from Apache HTTP */
+				width: 62%;
+				margin-left: auto;
+				margin-right: auto;
+				height: 100%;
+				background-size: contain;
+				position: relative;
+				opacity: .5;
+			}
+
+			#c_mug {
+				background: url(http://192.168.2.2/kaffee.png) center center no-repeat; /* IP of Raspberry Pi, serving from Apache HTTP */
+				width: 75%;
+				margin-left: auto;
+				margin-right: auto;
+				height: 100%;
+				background-size: contain;
+				position: relative;
+				opacity: .5;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="submit" id="espresso" name="form_action" value="espresso"></button>
+		<input type="submit" id="coffee" name="form_action" value="coffee"></button>
+			<div id="espresso_l">
+				<label for="espresso">
+					<div id="e_side">
+						<div id="e_bar">
+							<div class="contain">
+								<p>Espresso</p>
+							</div>
+						</div>
+						<div id="e_mug"></div>
+					</div>
+				</label>
+			</div>
+
+			<div id="coffee_l">
+				<label for="coffee">
+					<div id="c_side">
+						<div id="c_bar">
+							<div class="contain">
+								<p>Kaffee</p>
+							</div>
+						</div>
+						<div id="c_mug"></div>
+					</div>
+				</label>
+			</div>
+		<div id="container">
+			<div id="state">
+				<div id="indicator"></div>
+			</div>
+		</div>
+	</body>
+</html>
