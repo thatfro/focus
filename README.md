@@ -17,6 +17,11 @@ The next step is to get away from the coffee machine and control something else 
 * Client (directory for the smarthpone)
   * coffee (cordova directory)
     * www (actual development directory)
+* Playground (test directory)
+
+## Branches
+* master - main publication branch
+* dev - development branch (nightly "builds")
 
 ## Achievements
 * The project has been successfull as a school project and i want to go further.

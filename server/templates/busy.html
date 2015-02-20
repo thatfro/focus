@@ -1,4 +1,4 @@
-$def with (form)
+$def with (form, cupsleft)
 
 <!--
 Info:
@@ -9,8 +9,8 @@ Description:
  Template for the busy state
 
 Edit:
- Aug 2014
- Version 1.0
+ Feb 2015
+ Version 1.1
 
 (c) Jannis Portmann
 -->
@@ -48,6 +48,19 @@ Edit:
 				position: relative;
 				background-color: #ffc334;
 				border: solid #d79f18 2px;
+				display: table;
+				overflow: hidden;
+			}
+
+			#coffeesleft {
+				margin: 0;
+				font-size: 40px;
+				height: 100%;
+				color: #fff;
+				vertical-align: middle;
+				text-align: center;
+				display: table-cell;
+				top: 5px;
 			}
 
 			#container {
@@ -182,7 +195,14 @@ Edit:
 			</div>
 		<div id="container">
 			<div id="state">
-				<div id="indicator"></div>
+				<div id="indicator">
+					<p id="coffeesleft">
+						$if cupsleft:
+								$cupsleft
+						$else:
+								-
+					</p>
+				</div>
 			</div>
 		</div>
 	</body>

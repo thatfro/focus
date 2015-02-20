@@ -1,0 +1,141 @@
+<!--
+Info:
+ Project Home Smart Home
+ Server ready.html
+
+Description:
+ Template for the ready state
+
+Edit:
+  Feb 2015
+  Version 1.1
+
+(c) Jannis Portmann
+-->
+
+<html>
+  <head>
+    <style type="text/css"> /* Maybe not the most elegant, but the only working... */
+      button {
+        outline: 0;
+      }
+
+      input {
+        display: none;
+      }
+
+      form, table, tbody, tr, td, body, html  {
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        background: #553f33;
+      }
+
+      p {
+        text-align: center;
+        width: 100%;
+        position: relative;
+      }
+
+      .labeltext {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        font-size: 30px;
+        top: 85px;
+        padding: 0;
+        margin: 0;
+      }
+
+      .circle {
+        width: 200px;
+        height: 200px;
+        background: #fff;
+        border-radius: 100%;
+        border: none;
+        color: #553f33;
+        padding: 0;
+        margin: 0;
+      }
+
+      #message {
+        font-family: 'Roboto', Helvetica, Arial, sans-serif;
+        font-size: 40px;
+      }
+
+      #container {
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+        color: #fff;
+        padding-left: 20%;
+        padding-right: 20%;
+      }
+
+      #subcontainer {
+        vertical-align: middle;
+        display: table-cell;
+        text-align: justify;
+      }
+
+      #subcontainer > .cricle {
+        width: 100px; /* Declare your value. Can be in relative units. */
+        display: inline-block;
+        vertical-align: top;
+
+        /* IE fix. */
+        *display: inline;
+        zoom: 1;
+      }
+
+      #subcontainer:after {
+        content: "";
+        width: 100%;
+        display: inline-block;
+      }
+
+      #oops {
+        font-size: 90px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <form method="POST">
+      <input type="submit" id="yes" name="form_action" value="yes"></input>
+      <input type="submit" id="settousual" name="form_action" value="settousual"></input>
+      <input type="submit" id="panic" name="form_action" value="panic"></input>
+      <div id="container">
+        <div id="subcontainer">
+          <p id="oops">
+            Oops!
+          </p>
+          <p id="message">
+            Es sind keine Tassen mehr übrig...<br><br>Weiterfahren?
+          </p>
+          <div class="circle">
+            <label for="yes">
+              <p class="labeltext">
+                Ja
+              </p>
+            </label>
+          </div>
+          <div class="circle">
+            <label for="settousual">
+              <p class="labeltext">
+                Zurücksetzen
+              </p>
+            </label>
+          </div>
+          <div class="circle">
+            <label for="panic">
+              <p class="labeltext">
+                Panik!
+              </p>
+            </label>
+          </div>
+        </div>
+      </div>
+    </form>
+  </body>
+</html>

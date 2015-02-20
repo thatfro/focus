@@ -1,4 +1,4 @@
-$def with (form)
+$def with (form, cupsleft)
 
 <!--
 Info:
@@ -9,8 +9,8 @@ Description:
  Template for the ready state
 
 Edit:
- Aug 2014
- Version 1.0
+	Feb 2015
+	Version 1.1
 
 (c) Jannis Portmann
 -->
@@ -18,7 +18,7 @@ Edit:
 <html>
 	<head>
 		<style type="text/css"> /* Maybe not the most elegant, but the only working... */
-						button {
+			button {
 				outline: 0;
 			}
 
@@ -50,6 +50,19 @@ Edit:
 				position: relative;
 				background-color: #299b44;
 				border: solid #26883e 2px;
+				display: table;
+				overflow: hidden;
+			}
+
+			#coffeesleft {
+				margin: 0;
+				font-size: 40px;
+				height: 100%;
+				color: #fff;
+				vertical-align: middle;
+				text-align: center;
+				display: table-cell;
+				top: 5px;
 			}
 
 			#container {
@@ -137,8 +150,8 @@ Edit:
 	</head>
 	<body>
 		<form method="POST">
-			<input type="submit" id="espresso" name="form_action" value="espresso"></button>
-			<input type="submit" id="coffee" name="form_action" value="coffee"></button>
+			<input type="submit" id="espresso" name="form_action" value="espresso"></input>
+			<input type="submit" id="coffee" name="form_action" value="coffee"></input>
 		</form>
 		<div id="espresso_l">
 			<label for="espresso">
@@ -167,7 +180,14 @@ Edit:
 		</div>
 		<div id="container">
 			<div id="state">
-				<div id="indicator"></div>
+				<div id="indicator">
+					<p id="coffeesleft">
+						$if cupsleft:
+								$cupsleft
+						$else:
+								-
+					</p>
+				</div>
 			</div>
 		</div>
 	</body>
