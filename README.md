@@ -1,4 +1,5 @@
-# home smart home
+# focus
+New, more catchy name from lat. locus, fireplace, meaning home.
 Started as a school project, this is going to be developed further.
 
 ## Idea
