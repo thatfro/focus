@@ -30,7 +30,7 @@ espresso_pin = 15
 rotary_pin = 16
 
 #GPIO-pin 25 (Machine power) -- 240V relay [HYPOTHETICAL - No current]
-power_pin = 22
+#power_pin = 22
 
 #use board numbers
 GPIO.setmode(GPIO.BOARD)
