@@ -1,7 +1,16 @@
 #!/usr/bon/python
+from __future__ import division
 import RPi.GPIO as GPIO
 from time import sleep
 import sys
+import math
+
+x = 0 #delay time
+acc = 0 #fake bool [1/-1]
+
+delaymax = 0.1      #
+delaymin = 0.001    # standard values for motor
+motorsteps = 20     #
 
 GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
@@ -24,16 +33,23 @@ StepValues =   [[0,1,1,0], #Step 1
                 [1,0,0,1], #Step 3
                 [1,0,1,0]] #Step 4
 
-def turn(f):
-    if f == True:
+def turn(d):
+    global x
+    if d == True:
         for step in StepValues:
             # Loop through steps to turn
             GPIO.output(motor_1, step[0])
+            # print "#15"
             GPIO.output(motor_2, step[1])
+            # print "#18"
             GPIO.output(motor_3, step[2])
+            # print "#8"
             GPIO.output(motor_4, step[3])
-            sleep(0.01) # Delay between rotations
-    if f == False:
+            # print "#7"
+            sleep(x) # Delay between rotations
+
+
+    if d == False:
         # Hold position
         for step in StepValues:
             GPIO.output(motor_1, 0)
@@ -42,11 +58,55 @@ def turn(f):
             GPIO.output(motor_4, 0)
             sleep(1)
 
+def accelerate(i,s):
+    global x
+    global delaymax
+    global delaymin
+    global motorsteps
+
+    if i == "inc":
+        acc = 1
+    if i == "dec":
+        acc = -1
+
+    x = ((delaymax-delaymin)/2)*math.sin(((1/motorsteps)*math.pi*s)+(0.5*math.pi*acc))+((delaymax-delaymin)/2)+delaymin
+    print x
+    print s
+
 def main():
-    print "Running!"
+    global delaymax
+    global delaymin
+    global motorsteps
+
+    # For variable input
+    """
+    dmax = raw_input("Maximales Delay: ")
+    delaymax = float(dmax)
+    dmin = raw_input("Maximales Delay: ")
+    delaymin = float(dmin)
+    stp = raw_input("Anzahl steps bis minimum: ")
+    motorsteps = int(stp)
+    """
+
+    print "Transporting"
     # Set enable pins to HIGH
     GPIO.output(enable_1, GPIO.HIGH)
     GPIO.output(enable_2, GPIO.HIGH)
-    # Perform infinite turns
-    while True:
+
+    #perform one ransport
+    for i in range(0,motorsteps+1):
+        accelerate("inc",i)
         turn(True)
+    for i in range(0,100+1):
+        turn(True)
+    for i in range(0,motorsteps+1):
+        accelerate("dec",i)
+        turn(True)
+    turn(False)
+    print "Finished"
+
+    GPIO.output(enable_1, GPIO.LOW)
+    GPIO.output(enable_2, GPIO.LOW)
+
+while True:
+    main()
