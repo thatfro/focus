@@ -1,12 +1,12 @@
 # Info:
-#   Project Home Smart Home
+#   Project focus
 #   Server control control.py
 #
 # Description:
 #   Main control script of the server
 #
 # Edit:
-#   Feb 2015
+#   Mar 2015
 #   Version 1.1
 #
 # (c) Jannis Portmann
@@ -90,7 +90,7 @@ def cleft(option):
         fr = open('cupsleft.txt','r')
         cupslefttemp = fr.read() #Read amount of cups left
         fr.close()
-        cupsleft = int(cupslefttemp) - 1
+    #    cupsleft = int(cupslefttemp) - 1
         fw = open('cupsleft.txt','w')
         fw.write(str(cupsleft)) #write new amount
         fw.close()
@@ -116,23 +116,24 @@ class index:
         if cl <= 0:
            return render.nocups()
 
-        # ----- [HYPOTHETICAL] -----
-        # if GPIO.input(on_pin) == True: #in case of a running machine [HYPOTHETICAL]
-        #     if status == 0: #in case of ready
-        #        cleft('read')
-        #        print "LOG: Ready for orders. Cups left: " + cupsleft
-        #        return render.ready('',cupsleft)
-        #     if status == 1: #in case of busy
-        #         print "LOG: Machine is busy, try later."
-        #         return render.busy('')
-
-        # else: #in case of a sleeping machchine [HYPOTHETICAL]
-        #     startup()
-        #     return render.startup('')
+        # ----- [HYPOTHETICAL] ---------------------------------------------------------*
+        # if GPIO.input(on_pin) == True: #in case of a running machine [HYPOTHETICAL]   |H
+        #     if status == 0: #in case of ready                                         |Y
+        #        cleft('read')                                                          |P
+        #        print "LOG: Ready for orders. Cups left: " + cupsleft                  |O
+        #        return render.ready('',cupsleft)                                       |T
+        #     if status == 1: #in case of busy                                          |H
+        #         print "LOG: Machine is busy, try later."                              |E
+        #         return render.busy('')                                                |T
+        #                                                                               |I
+        # else: #in case of a sleeping machchine [HYPOTHETICAL]                         |C
+        #     startup()                                                                 |A
+        #     return render.startup('')                                                 |L
+        # ------------------------------------------------------------------------------*
 
     #show output
     def POST(self):
-        x = web.input(form_action = 'espresso')
+        x = web.input(form_action = 'dafuq') #no comment
 
         #When Espresso is clicked
         if x.form_action == 'espresso':
@@ -189,4 +190,4 @@ class index:
 if __name__=="__main__":
     app.run()
 
-# --------------- END OF HSH CONRTOL --------------- #
+# --------------- END OF FOCUS CONRTOL --------------- #

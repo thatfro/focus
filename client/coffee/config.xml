@@ -1,14 +1,14 @@
 “<?xml version='1.0' encoding='utf-8'?>
-<widget id="ch.atmoslab.coffee" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="ch.atmoslab.coffee" version="1.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <preference name="loglevel" value="ERROR" />
     <feature name="App">
         <param name="android-package" value="org.apache.cordova.App" />
     </feature>
-    <name>Coffee</name>
+    <name>focus</name>
     <description>
-        The app of the project Home smart home. Control the prototype with it!
+        Coffee only control of focus project.
     </description>
-    <author email="jannis.portmann@atmoslab.ch" href="http://atmoslab.ch">
+    <author email="jannis.portmann@gmail.com" href="http://twitter.com/thisfro">
         Jannis Portmann
     </author>
     <content src="index.html" />
