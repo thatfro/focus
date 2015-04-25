@@ -5,7 +5,7 @@ from time import sleep
 import sys
 import math
 
-x = 0 #delay time
+x = 0.001 #delay time
 acc = 0 #fake bool [1/-1]
 
 delaymax = 0.1      #
@@ -39,13 +39,9 @@ def turn(d):
         for step in StepValues:
             # Loop through steps to turn
             GPIO.output(motor_1, step[0])
-            # print "#15"
             GPIO.output(motor_2, step[1])
-            # print "#18"
             GPIO.output(motor_3, step[2])
-            # print "#8"
             GPIO.output(motor_4, step[3])
-            # print "#7"
             sleep(x) # Delay between rotations
 
 
@@ -93,17 +89,21 @@ def main():
     GPIO.output(enable_1, GPIO.HIGH)
     GPIO.output(enable_2, GPIO.HIGH)
 
-    #perform one ransport
-    for i in range(0,motorsteps+1):
-        accelerate("inc",i)
-        turn(True)
-    for i in range(0,100+1):
-        turn(True)
-    for i in range(0,motorsteps+1):
-        accelerate("dec",i)
-        turn(True)
-    turn(False)
-    print "Finished"
+
+    # #perform one ransport
+    # for i in range(0,motorsteps+1):
+    #     # accelerate("inc",i)
+    #     turn(True)
+    # for i in range(0,100+1):
+    #     turn(True)
+    # for i in range(0,motorsteps+1):
+    #     # accelerate("dec",i)
+    #     turn(True)
+    # turn(False)
+    # print "Finished"
+    #
+
+    turn(True)
 
     GPIO.output(enable_1, GPIO.LOW)
     GPIO.output(enable_2, GPIO.LOW)
