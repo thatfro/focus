@@ -6,7 +6,7 @@
 #   Main control script of the server
 #
 # Edit:
-#   Apr 2015
+#   Mar 2015
 #   Version 1.1
 #
 # (c) Jannis Portmann
@@ -28,6 +28,9 @@ espresso_pin = 15
 
 #GPIO-pin 23 (Rotary-Press)
 rotary_pin = 16
+
+#GPIO-pin 25 (Machine power) -- 240V relay [HYPOTHETICAL - No current]
+#power_pin = 22
 
 #use board numbers and ignore warnings
 GPIO.setmode(GPIO.BOARD)
@@ -83,7 +86,6 @@ def status(option, value):
         stat = f.read()
         print 'LOG: Status is ' + str(stat)
         return int(stat)
-
     if option == 'write':
         f = open('status.txt','w')
         f.write(str(value))
@@ -107,6 +109,21 @@ class index:
             print 'ERROR: Unexcepted error'
             return render.error('',cupsleft)
 
+        # ----- [HYPOTHETICAL] ---------------------------------------------------------*
+        # if GPIO.input(on_pin) == True: #in case of a running machine [HYPOTHETICAL]   |H
+        #     if status == 0: #in case of ready                                         |Y
+        #        cleft('read')                                                          |P
+        #        print "LOG: Ready for orders. Cups left: " + cupsleft                  |O
+        #        return render.ready('',cupsleft)                                       |T
+        #     if status == 1: #in case of busy                                          |H
+        #         print "LOG: Machine is busy, try later."                              |E
+        #         return render.busy('')                                                |T
+        #                                                                               |I
+        # else: #in case of a sleeping machchine [HYPOTHETICAL]                         |C
+        #     startup()                                                                 |A
+        #     return render.startup('')                                                 |L
+        # ------------------------------------------------------------------------------*
+
     #show output
     def POST(self):
         x = web.input(form_action = 'dafuq') #no comment
@@ -126,7 +143,48 @@ class index:
         if x.form_action == 'normal'
             status = status(str('write'),int(0))
             print "LOG: Status set to 0"
-            return render.ready('')
+            return render.ready('',cupslaeft)
+
+        #---------------------------------------------------------------
+
+        # #To reset status
+        # if x.form_action == 'reset':
+        #     print "LOG: Resetting..."
+        #     global status
+        #     status = 0
+        #     cleft('read')
+        #     cleft('read')
+        #     global cupsleft
+        #     cl = int(cupsleft)
+        #     if cl > 0:
+        #         print "LOG: Ready for orders. Cups left: " + cupsleft
+        #         return render.ready('',cupsleft)
+        #     if cl <= 0:
+        #        return render.nocups()
+        #
+        # #Continue
+        # if x.form_action == 'yes':
+        #     global cupsleft
+        #     cupsleft = '-';
+        #     fw = open('cupsleft.txt','w')
+        #     fw.write(cupsleft) #write new amount
+        #     fw.close()
+        #     return render.ready('',cupsleft)
+        #
+        # #Reset cup value
+        # if x.form_action == 'settousual':
+        #     global cupsleft
+        #     cupsleft = '5';
+        #     fw = open('cupsleft.txt','w')
+        #     fw.write(cupsleft) #write new amount
+        #     fw.close()
+        #     return render.ready('',cupsleft)
+        #
+        # #LOOOOL
+        # if x.form_action == 'panic':
+        #     #Coming soon!
+        #     global cupsleft
+        #     return render.ready('',cupsleft)
 
 # status = status('write',0)
 
@@ -134,4 +192,3 @@ if __name__=="__main__":
     app.run()
 
 # --------------- END OF FOCUS CONRTOL --------------- #
-# -------------------- YEAH MAN! --------------------- #
