@@ -64,8 +64,7 @@ def espresso():
     GPIO.output(espresso_pin, GPIO.HIGH)
     time.sleep(0.1)
     GPIO.output(espresso_pin, GPIO.LOW)
-    global status
-    status = status(str('write'),int(1))
+    status(str('write'),int(1))
     # cleft('sub')
 
 def coffee():
@@ -73,8 +72,7 @@ def coffee():
     GPIO.output(coffee_pin, GPIO.HIGH)
     time.sleep(0.1)
     GPIO.output(coffee_pin, GPIO.LOW)
-    global status
-    status = status(str('write'),int(1))
+    status(str('write'),int(1))
 
 def status(option, value):
     if option == 'get':
@@ -94,18 +92,18 @@ def status(option, value):
 class index:
 	#render form on http request
     def GET(self):
-        s = status(str('get'),str(''))
+        s = status('get','')
         print s
         str(s)
         if s == 0:
             print 'LOG: Ready for orders!'
-            return render.ready('',cupsleft)
+            return render.ready('')
         elif s == 1:
             print 'LOG: Machine is busy, try later!'
-            return render.busy('',cupsleft)
+            return render.busy_nr('') # not resetting
         else:
-            print 'ERROR: Unexcepted error'
-            return render.error('',cupsleft)
+            print 'ERROR: Unexpected error'
+            return render.error('')
 
     #show output
     def POST(self):
@@ -115,17 +113,22 @@ class index:
         if x.form_action == 'espresso':
             print "Right decision!"
             espresso()
-            return render.busy('',cupsleft)
+            return render.busy('')
 
         #When Coffee is clicked
         if x.form_action == 'coffee':
             print "You fool!"
             coffee()
-            return render.busy('',cupsleft)
+            return render.busy('')
 
-        if x.form_action == 'normal'
-            status = status(str('write'),int(0))
+        if x.form_action == 'normal':
+            status(str('write'),int(0))
             print "LOG: Status set to 0"
+            return render.ready('')
+
+        if x.form_action == 'reset':
+            status(str('write'),int(0))
+            print "LOG: Status set back to 0"
             return render.ready('')
 
 # status = status('write',0)

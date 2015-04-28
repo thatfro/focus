@@ -10,5 +10,5 @@ GPIO.setup(pin, GPIO.OUT)
 
 while True:
     GPIO.output(pin, 1)
-    sleep(.1)
+    sleep(1)
     GPIO.output(pin, 0)
