@@ -6,7 +6,7 @@ Info:
  Server busy.html
 
 Description:
- Template for the busy state
+ Template for the busy state (not resetting)
 
 Edit:
  Apr 2015
@@ -147,20 +147,6 @@ Edit:
 			}
 
 		</style>
-		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-		<script type="text/javascript">
-			jQuery(document).ready(function() {
-				console.log('busy');
-	  		var timeoutID;
-				timeoutID = window.setTimeout(refresh, 25000); //Set timeout to 25s
-
-				function refresh() {
-					console.log('refresh');
-					jQuery('#reset').click(); //Fake button press to reset status
-				}
-			});
-		</script>
 	</head>
 	<body>
 		<input type="submit" id="espresso" name="form_action" value="espresso"></input>
@@ -201,5 +187,13 @@ Edit:
 				</div>
 			</div>
 		</div>
+		<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+		<script type="text/javascript">
+		jQuery(document).ready(function() {
+			console.log('busy - not resetting');
+			setInterval('window.location.reload()', 5000); //Set timeout to 5s
+		});
+		</script>
 	</body>
 </html>

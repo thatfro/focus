@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 # Info:
 #   Project focus
 #   Server control control.py
@@ -17,17 +19,17 @@ import RPi.GPIO as GPIO	#import GPIO library
 import time #being used for intervals
 
 # ----- GPIO Definitions -------
-#GPIO-pin 17 (Machine) -- 240V detect [HYPOTHETICAL - 3V pin for demonstration purposes]
-on_pin = 11
-
 #GPIO-pin 4 (Coffee)
-coffee_pin = 7
+coffee_pin = 16
 
-#GPIO-pin 22 (Espresso)
-espresso_pin = 15
+#GPIO-pin 5 (Espresso)
+espresso_pin = 18
 
-#GPIO-pin 23 (Rotary-Press)
-rotary_pin = 16
+#GPIO-pin 2
+motor_pin = 13
+
+#GPIO-pin 3 (Distance)
+distance_pin = 15
 
 #use board numbers and ignore warnings
 GPIO.setmode(GPIO.BOARD)
@@ -36,10 +38,9 @@ GPIO.setwarnings(False)
 #use pin 4, 22, 23 and 25 as output
 GPIO.setup(espresso_pin, GPIO.OUT)
 GPIO.setup(coffee_pin, GPIO.OUT)
-GPIO.setup(rotary_pin, GPIO.OUT)
-
-#use pin 17 as input
-GPIO.setup(on_pin, GPIO.IN)
+#GPIO.setup(rotary_pin, GPIO.OUT)
+GPIO.setup(motor_pin, GPIO.OUT)
+GPIO.setup(distance_pin, GPIO.IN)
 
 # ----- Web.py Definitions -----
 render = web.template.render('templates/')
@@ -89,6 +90,9 @@ def status(option, value):
         print 'LOG: Status set to ' + str(stat)
     f.close
 
+def transport():
+    print 'trasporting...'
+
 class index:
 	#render form on http request
     def GET(self):
@@ -100,41 +104,54 @@ class index:
             return render.ready('')
         elif s == 1:
             print 'LOG: Machine is busy, try later!'
-            return render.busy_nr('') # not resetting
+            return render.noreset('') # not resetting
         else:
             print 'ERROR: Unexpected error'
             return render.error('')
 
     #show output
     def POST(self):
-        x = web.input(form_action = 'dafuq') #no comment
+        s = status('get','') #Update of status
 
-        #When Espresso is clicked
-        if x.form_action == 'espresso':
-            print "Right decision!"
-            espresso()
-            return render.busy('')
-
-        #When Coffee is clicked
-        if x.form_action == 'coffee':
-            print "You fool!"
-            coffee()
-            return render.busy('')
-
-        if x.form_action == 'normal':
-            status(str('write'),int(0))
-            print "LOG: Status set to 0"
-            return render.ready('')
+        x = web.input(form_action = 'By my heel, I care not!') #Whatever...
 
         if x.form_action == 'reset':
+            # transport()
             status(str('write'),int(0))
             print "LOG: Status set back to 0"
             return render.ready('')
 
-# status = status('write',0)
+        if s == 1:
+            print 'LOG: Machine is busy, try later!'
+            return render.noreset('')
+
+        elif s == 0:
+            #When Espresso is clicked
+            if x.form_action == 'espresso':
+                print "Right decision!"
+                espresso()
+                return render.busy('')
+
+            #When Coffee is clicked
+            if x.form_action == 'coffee':
+                print "You fool!"
+                coffee()
+                return render.busy('')
+
+            if x.form_action == 'normal':
+                status(str('write'),int(0))
+                print "LOG: Status set to 0"
+                return render.ready('')
+
+        else:
+            print 'ERROR: Unexpected error'
+            return render.error('')
+if GPIO.input(distance_pin) == 1:
+    print 'LOG: Distance <10'
 
 if __name__=="__main__":
     app.run()
+
 
 # --------------- END OF FOCUS CONRTOL --------------- #
 # -------------------- YEAH MAN! --------------------- #
