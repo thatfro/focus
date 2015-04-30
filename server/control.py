@@ -19,20 +19,20 @@ import RPi.GPIO as GPIO	#import GPIO library
 import time #being used for intervals
 
 # ----- GPIO Definitions -------
-#GPIO-pin 4 (Coffee)
-coffee_pin = 16
+#GPIO-pin 17 (Coffee)
+coffee_pin = 17
 
-#GPIO-pin 5 (Espresso)
-espresso_pin = 18
+#GPIO-pin 27 (Espresso)
+espresso_pin = 27
 
-#GPIO-pin 2
-motor_pin = 13
+#GPIO-pin 22 (Motor control)
+motor_pin = 22
 
-#GPIO-pin 3 (Distance)
-distance_pin = 15
+#GPIO-pin 23 (Distance)
+distance_pin = 23
 
 #use board numbers and ignore warnings
-GPIO.setmode(GPIO.BOARD)
+GPIO.setmode(GPIO.BCM)
 GPIO.setwarnings(False)
 
 #use pin 4, 22, 23 and 25 as output
@@ -93,6 +93,12 @@ def status(option, value):
 def transport():
     print 'trasporting...'
 
+def checkcup():
+    if GPIO.input(distance_pin) == 0:
+        render.nocup('')
+    if GPIO.input(distance_pin) == 1:
+        render.ready('')
+
 class index:
 	#render form on http request
     def GET(self):
@@ -146,12 +152,11 @@ class index:
         else:
             print 'ERROR: Unexpected error'
             return render.error('')
-if GPIO.input(distance_pin) == 1:
-    print 'LOG: Distance <10'
 
-if __name__=="__main__":
-    app.run()
-
+while True:
+    if __name__=="__main__":
+        app.run()
+        checkcup()
 
 # --------------- END OF FOCUS CONRTOL --------------- #
 # -------------------- YEAH MAN! --------------------- #
