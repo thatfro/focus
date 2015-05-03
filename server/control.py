@@ -18,21 +18,23 @@ from web import form #import form-web.py library
 import RPi.GPIO as GPIO	#import GPIO library
 import time #being used for intervals
 
+p = 0
+
 # ----- GPIO Definitions -------
 #GPIO-pin 17 (Coffee)
-coffee_pin = 17
+coffee_pin = 11
 
-#GPIO-pin 27 (Espresso)
-espresso_pin = 27
+#GPIO-pin 22 (Espresso)
+espresso_pin = 15
 
-#GPIO-pin 22 (Motor control)
+#GPIO-pin 25 (Motor control)
 motor_pin = 22
 
-#GPIO-pin 23 (Distance)
-distance_pin = 23
+#GPIO-pin 24 (Distance)
+distance_pin = 18
 
 #use board numbers and ignore warnings
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setwarnings(False)
 
 #use pin 4, 22, 23 and 25 as output
@@ -66,7 +68,6 @@ def espresso():
     time.sleep(0.1)
     GPIO.output(espresso_pin, GPIO.LOW)
     status(str('write'),int(1))
-    # cleft('sub')
 
 def coffee():
     print "LOG: A coffee is being poured ..."
@@ -94,10 +95,10 @@ def transport():
     print 'trasporting...'
 
 def checkcup():
-    if GPIO.input(distance_pin) == 0:
-        render.nocup('')
     if GPIO.input(distance_pin) == 1:
-        render.ready('')
+        return True
+    if GPIO.input(distance_pin) == 0:
+        return False
 
 class index:
 	#render form on http request
@@ -106,8 +107,11 @@ class index:
         print s
         str(s)
         if s == 0:
-            print 'LOG: Ready for orders!'
-            return render.ready('')
+            if checkcup() == True:
+                print 'LOG: Ready for orders!'
+                return render.ready('')
+            else:
+                return render.nocup('')
         elif s == 1:
             print 'LOG: Machine is busy, try later!'
             return render.noreset('') # not resetting
@@ -134,29 +138,55 @@ class index:
         elif s == 0:
             #When Espresso is clicked
             if x.form_action == 'espresso':
-                print "Right decision!"
-                espresso()
-                return render.busy('')
+                # print "Right decision!"
+                #if checkcup() == True:
+                    espresso()
+                    return render.busy('')
+                #if checkcup() == False:
+                    #global p
+                    #p = 1 #cespresso
+                    #return render.nocup('')
 
             #When Coffee is clicked
             if x.form_action == 'coffee':
-                print "You fool!"
-                coffee()
-                return render.busy('')
+                # print "You fool!"
+                #if checkcup() == True:
+                    coffee()
+                    return render.busy('')
+                #if checkcup() == False:
+                #    global p
+                #    p = 2 #coffee
+                #    return render.nocup('')
 
             if x.form_action == 'normal':
                 status(str('write'),int(0))
                 print "LOG: Status set to 0"
                 return render.ready('')
 
+            if x.form_action == 'ok_f':
+                print "LOG: No cup. Do nothing"
+                return render.ready('')
+
+            if x.form_action == 'ignore_f':
+                print "LOG: No cup. Ignore"
+                global p
+                # if p == 1:
+                #     coffee()
+                #     p = 0
+                #     return render.busy('')
+                # if p == 2:
+                #     espresso()
+                #     p = 0
+                #     return render.busy('')
+                # else:
+                #     return render.ready('')
+
         else:
             print 'ERROR: Unexpected error'
             return render.error('')
 
-while True:
-    if __name__=="__main__":
-        app.run()
-        checkcup()
+if __name__=="__main__":
+    app.run()
 
 # --------------- END OF FOCUS CONRTOL --------------- #
 # -------------------- YEAH MAN! --------------------- #

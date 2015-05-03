@@ -1,47 +1,46 @@
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/CordovaApp.ap_ \
- : /Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable/hdpi.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable/ldpi.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable/mdpi.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable/xhdpi.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-hdpi/icon.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-land-hdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-land-ldpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-land-mdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-land-xhdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-ldpi/icon.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-mdpi/icon.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-port-hdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-port-ldpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-port-mdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-port-xhdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/drawable-xhdpi/icon.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/values/strings.xml \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/res/xml/config.xml \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable/hdpi.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable/ldpi.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable/mdpi.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable/xhdpi.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-hdpi/icon.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-land-hdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-land-ldpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-land-mdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-land-xhdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-ldpi/icon.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-mdpi/icon.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-port-hdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-port-ldpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-port-mdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-port-xhdpi/screen.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/res/drawable-xhdpi/icon.png \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/_where-is-www.txt \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/www \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/www/cordova.js \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/www/cordova_plugins.js \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/www/css \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/www/img \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/www/index.html \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/www/js \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/www/start.html \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/www/css/index.css \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/assets/www/js/index.js \
-/Users/jannisportmann/Desktop/focus/code/client/coffee/platforms/android/ant-build/AndroidManifest.xml \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\CordovaApp.ap_ \
+ : C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable\hdpi.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable\ldpi.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable\mdpi.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable\xhdpi.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-hdpi\icon.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-land-hdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-land-ldpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-land-mdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-land-xhdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-ldpi\icon.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-mdpi\icon.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-port-hdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-port-ldpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-port-mdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-port-xhdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\drawable-xhdpi\icon.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\values\strings.xml \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\res\xml\config.xml \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable\hdpi.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable\ldpi.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable\mdpi.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable\xhdpi.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-hdpi\icon.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-land-hdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-land-ldpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-land-mdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-land-xhdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-ldpi\icon.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-mdpi\icon.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-port-hdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-port-ldpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-port-mdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-port-xhdpi\screen.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\res\drawable-xhdpi\icon.png \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\assets\www \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\assets\_where-is-www.txt \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\assets\www\cordova.js \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\assets\www\cordova_plugins.js \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\assets\www\css \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\assets\www\index.html \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\assets\www\js \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\assets\www\start.html \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\assets\www\css\index.css \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\assets\www\js\index.js \
+C:\Users\Jannis Portmann\Documents\GitHub\focus\client\coffee\platforms\android\ant-build\AndroidManifest.xml \

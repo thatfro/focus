@@ -6,6 +6,9 @@
     <icon density="mdpi" src="platforms/android/res/drawable/mdpi.png" />
     <icon density="xhdpi" src="platforms/android/res/drawable/xhdpi.png" />
     <preference name="loglevel" value="ERROR" />
+    <feature name="App">
+        <param name="android-package" value="org.apache.cordova.App" />
+    </feature>
     <name>focus</name>
     <description>
         Coffee only control of focus project.

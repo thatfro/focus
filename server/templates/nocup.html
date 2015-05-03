@@ -3,21 +3,26 @@ $def with (form)
 <!--
 Info:
  Project Home Smart Home
- Server busy.html
+ Server ready.html
 
 Description:
- Template for the busy state (not resetting)
+ Template for the ready state
 
 Edit:
- Apr 2015
- Version 1.1
+	Feb 2015
+	Version 1.1
 
 (c) Jannis Portmann
 -->
 
 <html>
 	<head>
-		<style type="text/css">
+		<meta charset="utf-8" />
+		<style type="text/css"> /* Maybe not the most elegant, but the only working... */
+			button {
+				outline: 0;
+			}
+
 			input {
 				display: none;
 			}
@@ -29,27 +34,18 @@ Edit:
 				font-family: 'Roboto', Helvetica, Arial, sans-serif;
 			}
 
+			#coffee, #espresso {
+				display: none;
+			}
+
 			#state {
 				width: 60px;
 				height: 60px;
-				border-radius: 50%;
+				border-radius: 60px;
 				background-color: #fff;
-				position: absolute;
+				position: fixed;
 				bottom: 20px;
 				padding: 7px;
-				margin-left: auto;
-				margin-right: auto;
-			}
-
-			#indicator{
-				width: 56px;
-				height: 56px;
-				border-radius: 50%;
-				position: relative;
-				background-color: #ffc334;
-				border: solid #d79f18 2px;
-				display: table;
-				overflow: hidden;
 			}
 
 			#coffeesleft {
@@ -63,8 +59,18 @@ Edit:
 				top: 5px;
 			}
 
+			#indicator{
+				width: 56px;
+				height: 56px;
+				border-radius: 50%;
+				position: relative;
+				background-color: #ff3434;
+				border: solid #d91717 2px;
+			}
+
 			#container {
 				width: 74px;
+				height: 74px;
 				margin: 0;
 				padding: 0;
 				margin-right: auto;
@@ -132,7 +138,6 @@ Edit:
 				height: 100%;
 				background-size: contain;
 				position: relative;
-				opacity: .5;
 			}
 
 			#c_mug {
@@ -143,42 +148,70 @@ Edit:
 				height: 100%;
 				background-size: contain;
 				position: relative;
-				opacity: .5;
 			}
 
+			#message {
+				height: 140px;
+				width: 66%;
+				font-size: 40px;
+				background-color: #ccc;
+				position: absolute;
+				margin-left: 16%;
+				margin-right: 16%;
+				margin-top: 20%;
+			}
+
+			#message > label > p {
+				color: #6d4e3d;
+				line-height: 80px;
+				margin-top: 0px;
+			}
+
+			#msg_container {
+				width: 60%;
+				margin-left: 20%;
+				margin-right: 20%;
+			}
+
+			#ok, #ignore {
+				font-size: 20px;
+				display: inline;
+				margin-left: 30%;
+				top: -40px;
+				color: #6d4e3d;
+			}
 		</style>
 	</head>
 	<body>
-		<input type="submit" id="espresso" name="form_action" value="espresso"></input>
-		<input type="submit" id="coffee" name="form_action" value="coffee"></input>
 		<form method="POST">
-			<input type="submit" id="reset" name="form_action" value="reset"></input>
+			<input type="submit" id="ok_f" name="form_action" value="ok_f"></input>
+			<input type="submit" id="ignore_f" name="form_action" value="ignore_f"></input>
 		</form>
-			<div id="espresso_l">
-				<label for="espresso">
-					<div id="e_side">
-						<div id="e_bar">
-							<div class="contain">
-								<p>Espresso</p>
-							</div>
+		<div id="espresso_l">
+			<label for="espresso">
+				<div id="e_side">
+					<div id="e_bar">
+						<div class="contain">
+							<p>Espresso</p>
 						</div>
-						<div id="e_mug"></div>
 					</div>
-				</label>
-			</div>
+					<div id="e_mug"></div>
+				</div>
+			</label>
+		</div>
 
-			<div id="coffee_l">
-				<label for="coffee">
-					<div id="c_side">
-						<div id="c_bar">
-							<div class="contain">
-								<p>Kaffee</p>
-							</div>
+		<div id="coffee_l">
+			<label for="coffee">
+				<div id="c_side">
+					<div id="c_bar">
+						<div class="contain">
+							<p>Kaffee</p>
 						</div>
-						<div id="c_mug"></div>
 					</div>
-				</label>
-			</div>
+					<div id="c_mug"></div>
+				</div>
+			</label>
+		</div>
 		<div id="container">
 			<div id="state">
 				<div id="indicator">
@@ -187,13 +220,32 @@ Edit:
 				</div>
 			</div>
 		</div>
+		<div id="message">
+			<p>Es ist keine Tasse vorhanden!</p>
+			<div id="msg_container">
+				<label for="ignore_f">
+					<p id="ok">Zurück</p>
+				</label>
+				<label for="ok_f">
+					<p id="ignore">Ignorieren</p>
+				</label>
+			</div>
+		</div>
+		<input type="submit" id="ignore_f" name="form_action" value="ignore_f"></input>
+		<input type="submit" id="ok_f" name="form_action" value="ok_f"></input>
 		<script src="http://192.168.2.115/jquery-1.11.0.min.js"></script>
 		<script src="http://192.168.2.115/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript">
 		jQuery(document).ready(function() {
-			console.log('busy - not resetting');
-			setInterval('window.location.reload()', 5000); //Set timeout to 5s
+			console.log('nocup');
+		}
+		jQuery('#ok').click(function() {
+			jQuery('#ok_f').click();
+		}); //Fake button press to accept
+		jQuery('#ignore').click(function() {
+			jQuery('#ignore_f').click();
 		});
+	});
 		</script>
 	</body>
 </html>
